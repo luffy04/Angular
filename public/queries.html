@@ -1,0 +1,152 @@
+
+<div ng-controller="error">
+        <div id="mainpage">
+            <div id="mainone"></div>
+            <div id="maintwo">
+                <div style="margin-bottom:0.5vh">
+                    <button class="btn" ng-click="uploading()">Add<i class="fas fa-plus" style="width:1.5vw"></i></button>
+                </div>
+                <div ng-show="suxhide" style="background: limegreen;font-weight: 800;color: white;height: 3vh;border: 1px solid limegreen;border-radius: 0.25em;padding: 1.25vh 0">
+                    <span style="margin-left:1vw">Success</span><button class="fas fa-times" ng-click="suchide()" style="float:right;margin-right: 1vw;border: none;background: none;color: white"></button>
+                </div>
+                <div ng-show="erx" style="background: orangered;font-weight: 800;color: white;height: 3vh;border: 1px solid orangered;border-radius: 0.25em;padding: 1.25vh 0">
+                    <span style="margin-left:1vw">{{wrong}}</span><button class="fas fa-times" ng-click="errhide()"
+                        style="float:right;margin-right: 1vw;border: none;background: none;color: white"></button>
+                </div>
+                <div id="box-on" ng-show="add1">
+                    <div id="box-one">
+                        <div id="box-one-one">
+                            Code:<select style="border:none;background: none;border-bottom: 1px solid #3498db;width: 66.2px;"
+                                ng-model="language">
+                                <option>C++</option>
+                                <option>C</option>
+                                <option>C#</option>
+                                <option>Java</option>
+                                <option>Python</option>
+                                <option>Javascript</option>    
+                                <option>NodeJs</option>
+                                <option>AngularJS</option>
+                                <option>Ruby</option>
+                                <option>PHP</option>
+                                <option>ReactJs</option>
+                                <option>JQUERY</option>
+                                <option>SQL</option>
+                            </select>
+                            <span style="margin-left:2vw">Price:₹<input type="number" id="price"></span>
+                        </div>
+                        <div id="box-one-two">
+                            <ul>
+                                <li ng-repeat="search in files" style="margin-top:2vh;margin-bottom: 2vh">  
+                                    {{search.language}}<label>
+                                        <i style="color:white;border:1px solid #3498db;border-radius: 0.25em;background: #3498db;padding: 2px">Attach</i>
+                                        <input type="file" onchange="angular.element(this).scope().uploadFile(this.files,this)"
+                                            class="inside" required>
+                                        <span compile="search.file"></span><button class="fas fa-times" id="remove"
+                                            style="opacity:{{search.remove}};" ng-click="create($index)"></button>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div for="description" spellcheck="false" id="description">
+                            <div id="inp" name="description" data-placeholder="&nbsp;" ng-keyup="count()" onkeypress="return (this.innerText.length <= 199)"
+                                ng-model="description1" contenteditable="true"></div>
+                            <span id="label">Description: (Max-Words:{{words}})</span>
+                        </div>
+                        <div>
+                            <button ng-click="send()">Upload</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="bar">
+                    <input type="search" class="search-box" ng-model="test">
+                    <i class="fa fa-search" id="search-btn"></i>
+                </button>
+                <div style="float:left;margin-left:2vw;margin-top:2vh">
+                    <span style="color:blue;font-size: 1.2em;margin-right: 0.5vw"><i class="fas fa-stream"></i>Filter:</span>
+                    <span><i class="fas fa-sort-amount-up" style="color:red;margin-right: 1vw;" title="Price:Low to High" ng-click=asc() ng-disabled="ascending"></i>
+                        <i class="fas fa-sort-amount-down" style="color:green" title="Price:High to Low" ng-click="des()" ng-disabled="descending"></i></span>
+                </div>
+                <div ng-show="message" id="message-outer-form">
+                    <div id="message-outer">
+                        <div id="message" placeholder="Write a Message" contenteditable="true" onkeypress="return (this.innerText.length <= 99)"></div>
+                    </div>
+                    <div id="message-buttons"><button id="cancel" ng-click="cancel()">Cancel</button><button id="ok" ng-click="ok()">Ok</button></div>
+                </div>
+                <div id="maintwo-one" data-ng-init="init()">
+                    <ul>
+                        <li id="mainquery" ng-repeat="text in quote|filter:test">
+                            <div style="width:3.5vw;height:12vh;float: left">
+                                <button style="width:3.5vw;height:12vh;background: none;border: none">
+                                    <span compile="text.month" style="font-size: 4.3vh;font-weight: 500;color: cadetblue;"></span>
+                                    <span compile="text.date" style="font-size: 6.7vh;font-weight: 900;color: grey;"></span>
+                                </button>
+                            </div>
+                            <div style="width:45vw;height:12vh;float: left;padding: 1vh 4vw">
+                                <span style="width:37vw"><span compile="text.username" style="font-size:20px;color: white;font-weight: 700"></span><span
+                                        style="margin-left:1vw">({{text.count}} Files Attached)</span></span>
+                                
+                                        <button id="apply" onclick="angular.element(this).scope().apply(this)" style="display:{{text.apply}};border:1px solid {{applycolor}};background:{{applycolor}};" ng-click="apply1($event,$index)" ng-disabled="{{disable}}">{{applybtn}}</button>
+                                
+                                <div style="margin-top:1vh;width:37vw"><span compile="text.tag" style="color:cadetblue"></span>
+                                    <span compile="text.description" style="color:red;margin-left:1vw" ></span>
+
+                                    <div style="position:relative;border-radius: 50;width:1vw;float: right;">
+                                        <img src="{{text.user1pic}}" class="in" title="{{text.user1}}" onclick="angular.element(this).scope().showinfo(this)" ng-click="showinfo1($index)">
+                                        <div class="info" hidden>
+                                            <div class="first" style="background-color: #2E8B57;">
+                                                <img src="{{text.user1pic}}" style="border-radius: 50%;width: 21px;height: 23px;">
+                                                <span compile="text.user1" style="margin-left:20px;font-size: 26px;"></span>
+                                                <button class="confirm" onclick="angular.element(this).scope().confirmuser(this)" ng-show="confirm">Confirm</button>
+                                            </div>
+                                            <div class="second" style="background-color: #00FF7F;" compile="text.user1msg"></div>
+                                        </div>
+                                    </div>
+                                    <div style="position:relative;border-radius: 50;width:1vw;float: right;">
+                                        <img src="{{text.user2pic}}" class="in" title="{{text.user2}}" onclick="angular.element(this).scope().showinfo(this)" ng-click="showinfo1($index)">
+                                        <div class="info" hidden>
+                                            <div class="first" style="background-color: blue;">
+                                                <img src="{{text.user2pic}}" style="border-radius: 50%;width: 21px;height: 23px;">
+                                                <span compile="text.user2" style="margin-left:20px;font-size: 26px;"></span>
+                                                <button class="confirm" onclick="angular.element(this).scope().confirmuser(this)" ng-show="confirm">Confirm</button>
+                                            </div>
+                                            <div class="second" style="background-color:deepskyblue;" compile="text.user2msg"></div>
+                                        </div>
+                                    </div>
+                                    <div style="position:relative;border-radius: 50;width:1vw;float: right;">
+                                        <img src="{{text.user3pic}}" class="in" title="{{text.user3}}" onclick="angular.element(this).scope().showinfo(this)" ng-click="showinfo1($index)">
+                                        <div class="info" hidden>
+                                            <div class="first" style="background-color: darkorange;">
+                                                <img src="{{text.user3pic}}" style="border-radius: 50%;width: 21px;height: 23px;">
+                                                <span compile="text.user3" style="margin-left:20px;font-size: 26px;"></span>
+                                                <button class="confirm" onclick="angular.element(this).scope().confirmuser(this)" ng-show="confirm">Confirm</button>
+                                            </div>
+                                            <div class="second" style="background-color: orange;" compile="text.user3msg"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="margin-top:1.5vh;display: {{text.js}};">
+                                    <span compile="text.file1"></span>
+                                     <span compile="text.file2"></span>
+                                    <span compile="text.file3"></span>
+                                    <span compile="text.file4"></span>
+                                    <span compile="text.file5"></span>
+                                    <!-- <button id='doc1' class="fas fa-file-alt"></button><a onclick="angular.element(this).scope().to(this)" href="/code" id="btn" class='file1'><span compile="text.file1"></span></a>
+                                    <button id='doc2' class="fas fa-file-alt"></button><a onclick="angular.element(this).scope().to(this)" href="/code" id="btn" class='file2'><span compile="text.file2"></span></a>
+                                    <button id='doc3' class="fas fa-file-alt"></button><a onclick="angular.element(this).scope().to(this)" href="/code" id="btn" class='file3'><span compile="text.file3"></span></a>
+                                    <button id='doc4' class="fas fa-file-alt"></button><a onclick="angular.element(this).scope().to(this)" href="/code" id="btn" class='file4'><span compile="text.file4"></span></a>
+                                    <button id='doc5' class="fas fa-file-alt"></button><a onclick="angular.element(this).scope().to(this)" href="/code" id="btn" class='file5'><span compile="text.file5"></span></a> -->
+                                </div>
+                            </div>
+                            <div style="width:8.4vw;height:12vh;float: left;text-align: center">
+                                    <button compile="text.price" id="pricebox"></button>
+                                <button class="fas fa-sort-down" id="push-down" style="display:{{text.down}}" onclick="angular.element(this).scope().dropdown(this)" ng-click="drop($index)"></button>
+                                <button class="fas fa-sort-up" id="push-up" style="display:{{text.revert}}" onclick="angular.element(this).scope().dropup(this)" ng-click="up($index)"></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="mainthree"></div>
+        </div>
+    </div>
+    

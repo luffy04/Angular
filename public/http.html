@@ -1,0 +1,20 @@
+<div style="padding:0 10vw;" >
+    <div style="border-left:1px solid gray">
+        <div><h1 style="width:20vw;float: left">{{holder}}</h1>
+            <button id="apply" onclick="angular.element(this).scope().apply(this)" style="display:{{text.apply}}">Apply</button>
+        </div>
+        <div>
+            <span compile="file1">{{file1}}</span>
+            <span compile="file2">{{file2}}</span>
+            <span compile="file3">{{file3}}</span>
+            <span compile="file4">{{file4}}</span>
+            <span compile="file5">{{file5}}</span>
+        </div>
+        <div id="show">
+            <span id="inside1">
+                {{result}}
+            </span>
+        </div>
+        <div>
+    </div>
+</div>

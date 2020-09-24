@@ -1,0 +1,17 @@
+
+<div id="main" ng-controller="mains">
+    <div id="one"></div>
+    <div id="two">
+        <div id="search">
+            <input type="text" id="searchlang" autocomplete="off"  placeholder="Search..." ng-model="search">
+        </div>
+        <ul id="template">
+            <li class="blog" ng-repeat="x in all | filter:search">
+                <img src="{{x.image}}" id="img">
+                <button id="text">{{x.language}}</button>
+            </li>
+        </ul>
+    </div>
+    <div id="three"></div>
+</div>
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mainapp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+    <link rel="stylesheet" href="socket.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Indie+Flower" rel="stylesheet">
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+</head>
+<body>
+    <!-- <div style="z-index: 1;background: url('nf/html.jpg');"> -->
+        <div>
+            <img src="nf/portfolio.jpg" id="front">
+        </div>
+        <!-- <ul id="tab" ng-controller="error" svg></ul> -->
+        <ul id="tab" ng-controller="error">
+            <li ng-repeat="tabs in menu">
+                <span style="display:{{tabs.view}}" ng-show="{{tabs.show}}" compile="tabs.first">{{tabs.first}}</span>
+            </li>
+        </ul>
+        <!-- <ul id="tab" ng-controller="error">
+            <li ><button id="error"><span id="exclaim">!</span><a href="/" style="color:blue">ERROR FREE</a></button></li>
+            <li></li>
+            <li ><button id="home" ng-click="home('/')">HOME</button></li>
+            <li ><button id="queries" ng-click="queries('/queries')">QUERIES</button></li>
+            <li><button id="code" ng-click="code('/language')">CODE</button></li>
+            <li><button id="project" ng-click="project('/project')">PROJECTS</button></li>
+            <li><button id="portfolio" ng-click="portfolio('/portfolio')">PORTFOLIO</button></li>
+            <li ng-show="account"><button id="account" ng-click="account1('/account')">Account</button> </li>
+            <li ng-show="!account"><button id="logged"><i class="fas fa-check" style="color:green" ng-model="user"></i>{{user}}</button></li>    
+        </ul> -->
+        <div ng-controller="login">
+            
+        </div>
+        
+        
+        <!-- <div ng-controller="thing"> -->
+            <!-- <button ng-click="red()">red</button>
+        <ul>
+            <li ng-repeat="welcome in every" >
+                <span ng-bind-html="welcome.message|trustAsHtml"></span>
+            </li>
+        </ul> -->
+            <!-- <button ng-click="mail()">mail</button>
+        </div> -->
+        
+        <!-- <div ng-controller="app">
+            <button id="attach" class="fas fa-paperclip"><input type="file" onchange="angular.element(this).scope().uploadFile(this.files)"/></button>
+                <ul>
+                    <li class="animate" ng-repeat="search in foods">
+                                <button id="doc" class="fas fa-file-alt"></button><button ng-click="to(search)">{{search}}</button>
+                    </li>
+                </ul>
+        </div> 
+         <span ng-view class="newline"></span> -->
+        <div id="mainpage">
+            <div id="mainone"></div>
+            <div id="maintwo">
+                <!-- <a href="/auth/google">sign</a> -->
+            </div>
+            <div id="mainthree"></div>
+        </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+
+    <div ng-controller="error">
+        <button ng-click="logout()">Logout</button>
+        <div ng-init="profile()">
+            <img src="{{image}}" style="width:10vw;height:15vw">
+        </div>
+        <input type="file" onchange="angular.element(this).scope().change(this.files,this)" class="change" accept="image/*" required>
+    </div>
+    
